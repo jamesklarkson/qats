@@ -1,5 +1,5 @@
 import {
-  take, fork, put, all, call, race, takeEvery
+  take, fork, put, all, race, takeEvery
 } from 'redux-saga/effects';
 import { addKittyCreator, removeKittyCreator } from '../admin/kittyCreatorSlice';
 
@@ -145,23 +145,6 @@ function* onTransaction(actionMessage) {
       id, oops, RequestStatus.failed
     ));
   }
-}
-
-function generateTransWatcher(actionMessage) {
-  return function* watchForAction() {
-    while (true) {
-      const actionType = actionMessage.prefix
-        ? `${actionMessage.prefix}/pending`
-        : actionMessage.loadAction;
-
-      const pendingAction = yield take(actionType);
-      const id = pendingAction.meta
-        ? pendingAction.meta.requestId
-        : null;
-
-      yield fork(onTransaction, id, actionMessage);
-    }
-  };
 }
 
 export default function* transStatusSaga() {
