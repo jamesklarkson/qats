@@ -8,7 +8,7 @@ import { dismissTransStatus, selectAllTransStatus } from './transStatusSlice';
 
 const ToastTopLeft = styled(Toast)`
     position: absolute;
-    left: 1rem;
+    right: 1rem;
     top: 4rem;
     z-index: 1020;
     box-shadow: 4px 6px 10px 0px #00000087;
@@ -26,7 +26,7 @@ export default function TransactionStatusToast() {
       ? <Spinner animation="grow" /> : null;
 
     const autoHideDelay = trans.status === RequestStatus.succeeded
-      ? 3000 : 99999999;
+      ? 3000 : 5000;
 
     return (
       <ToastTopLeft

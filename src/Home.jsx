@@ -9,6 +9,7 @@ import Cat from './components/cat/Cat';
 import { CatModel } from './components/js/catFactory';
 import { connect } from './components/wallet/walletSaga';
 import GenZeroCounter from './components/cat/GenZeroCounter';
+import {Link, NavLink} from "react-router-dom";
 
 const Featured = styled(Row)`
     max-width: 40rem;
@@ -58,7 +59,7 @@ export default function Home() {
               </Button>
             </h3>
           )
-          : null
+          : <Link to="/factory" className="btn btn-info">Mint</Link>
       }
       {
         !wallet.web3ProviderAvailable

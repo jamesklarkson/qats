@@ -48,13 +48,13 @@ export default function MarketPage() {
       {eventAlert}
       <ButtonGroup className="mb-2">
         <Button
-          variant={currOfferType === offerTypes.sell ? 'primary' : 'light'}
+          variant={currOfferType === offerTypes.sell ? 'primary' : 'info'}
           onClick={() => setCurrOfferType(offerTypes.sell)}
         >
           Kitties For Sale
         </Button>
         <Button
-          variant={currOfferType === offerTypes.sire ? 'primary' : 'light'}
+          variant={currOfferType === offerTypes.sire ? 'primary' : 'info'}
           onClick={() => setCurrOfferType(offerTypes.sire)}
         >
           Sire Offers

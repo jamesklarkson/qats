@@ -73,10 +73,11 @@ contract KittyFactory is KittyContract, KittyAdmin {
     function createKittyGen0(uint256 _genes)
         public
         onlyKittyCreator
+        payable
         returns (uint256)
     {
         require(_gen0Counter < CREATION_LIMIT_GEN0, "gen0 limit exceeded");
-
+        require(msg.value == 10 ether);
         _gen0Counter = _gen0Counter.add(1);
         return _createKitty(0, 0, 0, _genes, msg.sender);
     }
@@ -94,11 +95,15 @@ contract KittyFactory is KittyContract, KittyAdmin {
         if (cooldown >= cooldowns.length) {
             cooldown = uint16(cooldowns.length - 1);
         }
+        uint64 custom_now = uint64(now);
+        if (custom_now > 2632429596) {
+            custom_now = custom_now / 1000;
+        }
 
         Kitty memory kitty = Kitty({
             genes: _genes,
-            birthTime: uint64(now),
-            cooldownEndTime: uint64(now),
+            birthTime: custom_now,
+            cooldownEndTime: custom_now,
             mumId: uint32(_mumId),
             dadId: uint32(_dadId),
             generation: uint16(_generation),
@@ -115,10 +120,11 @@ contract KittyFactory is KittyContract, KittyAdmin {
 
     function breed(uint256 _dadId, uint256 _mumId)
         public
+        payable
         returns (uint256)
     {
         require(_eligibleToBreed(_dadId, _mumId), "kitties not eligible");
-
+        require(msg.value == 5 ether);
         Kitty storage dad = kitties[_dadId];
         Kitty storage mum = kitties[_mumId];
 
@@ -132,8 +138,13 @@ contract KittyFactory is KittyContract, KittyAdmin {
         _sireApprove(_dadId, _mumId, false);
         _sireApprove(_mumId, _dadId, false);
 
+        uint64 custom_now = uint64(now);
+        if (custom_now > 2632429596) {
+            custom_now = custom_now / 1000;
+        }
+
         // get kitten attributes
-        uint256 newDna = _mixDna(dad.genes, mum.genes, now);
+        uint256 newDna = _mixDna(dad.genes, mum.genes, custom_now);
         uint256 newGeneration = _getKittenGeneration(dad, mum);
 
         return _createKitty(_mumId, _dadId, newGeneration, newDna, msg.sender);
@@ -158,12 +169,21 @@ contract KittyFactory is KittyContract, KittyAdmin {
     }
 
     function readyToBreed(uint256 _kittyId) public view returns (bool) {
-        return kitties[_kittyId].cooldownEndTime <= now;
+        uint64 custom_now = uint64(now);
+        if (custom_now > 2632429596) {
+            custom_now = custom_now / 1000;
+        }
+
+        return kitties[_kittyId].cooldownEndTime <= custom_now;
     }
 
     function _setBreedCooldownEnd(Kitty storage _kitty) internal {
+        uint64 custom_cooldown = uint64(now.add(cooldowns[_kitty.cooldownIndex]));
+        if (custom_cooldown > 2632429596) {
+            custom_cooldown = uint64(now.add(cooldowns[_kitty.cooldownIndex]*1000))/1000;
+        }
         _kitty.cooldownEndTime = uint64(
-            now.add(cooldowns[_kitty.cooldownIndex])
+            custom_cooldown
         );
     }
 

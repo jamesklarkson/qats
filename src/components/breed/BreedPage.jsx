@@ -96,7 +96,7 @@ export default function BreedPage() {
   };
 
   const sireCostTxt = sireOffer
-    ? ` (${Service.web3.utils.fromWei(sireOffer.price, 'ether')} ETH)` : '';
+    ? ` (${Service.web3.utils.fromWei(sireOffer.price, 'ether')} PLQ)` : '';
 
   // Set Parents
   const parentBoxes = [
@@ -175,13 +175,13 @@ export default function BreedPage() {
           <h5 className="text-center">Kitties</h5>
           <ButtonGroup className="p-1">
             <Button
-              variant={isSireList() ? 'light' : 'primary'}
+              variant={isSireList() ? 'info' : 'primary'}
               onClick={() => setListType(BreedListType.user)}
             >
               My Kitties
             </Button>
             <Button
-              variant={isSireList() ? 'primary' : 'light'}
+              variant={isSireList() ? 'primary' : 'info'}
               onClick={() => setListType(BreedListType.sire)}
             >
               Sire Offers

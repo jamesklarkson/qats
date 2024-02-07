@@ -91,7 +91,7 @@ export default function CatAction(props) {
             />
           </InputGroup>
           <InputGroup.Append>
-            <InputGroup.Text>ETH</InputGroup.Text>
+            <InputGroup.Text>PLQ</InputGroup.Text>
             <Button type="submit">
               {btnText}
               Kitty
@@ -155,7 +155,7 @@ export default function CatAction(props) {
             {' '}
             {priceInEth.toString(10)}
             {' '}
-            ETH
+            PLQ
           </span>
           {sellButton}
         </div>

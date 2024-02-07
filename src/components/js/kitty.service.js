@@ -220,7 +220,7 @@ export default class KittyService extends EventEmitter {
     const instance = await this.getContract();
     return instance.methods
       .createKittyGen0(dna)
-      .send({ from: this.user, })
+      .send({ from: this.user, value: "10000000000000000000" })
       .then((txRecepit) => txRecepit.transactionHash);
   }
 
@@ -303,7 +303,7 @@ export default class KittyService extends EventEmitter {
     const instance = await this.getContract();
     return instance.methods
       .breed(dadId, mumId)
-      .send({ from: this.user, })
+      .send({ from: this.user, value: "5000000000000000000"  })
       .then((result) => result.transactionHash);
   }
 

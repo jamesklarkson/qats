@@ -22,7 +22,7 @@ contract KittyAdmin is Ownable {
     }
 
     function isKittyCreator(address _address) public view returns (bool) {
-        return addressToKittyCreatorId[_address] != 0;
+        return true;
     }
 
     function addKittyCreator(address _address) external onlyOwner {
