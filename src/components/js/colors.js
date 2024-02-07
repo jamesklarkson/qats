@@ -1,6 +1,16 @@
 // adapted from https://github.com/arcticfrostgaming/lumio
 
 const colorObj = {
+  0: { color: '#241C1C', name: 'Rough Coal 1', },
+  1: { color: '#322726', name: 'Rough Coal 2', },
+  2: { color: '#443533', name: 'Rough Coal 3', },
+  3: { color: '#6A5A4E', name: 'Rough Coal 4', },
+  4: { color: '#796A58', name: 'Rough Coal 5', },
+  5: { color: '#462D24', name: 'Soft Earth 1', },
+  6: { color: '#52352A', name: 'Soft Earth 2', },
+  7: { color: '#5D392A', name: 'Soft Earth 3', },
+  8: { color: '#68402F', name: 'Soft Earth 4', },
+  9: { color: '#7A4830', name: 'Soft Earth 5', },
   10: { color: '#241C1C', name: 'Rough Coal 1', },
   11: { color: '#322726', name: 'Rough Coal 2', },
   12: { color: '#443533', name: 'Rough Coal 3', },

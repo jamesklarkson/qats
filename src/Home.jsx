@@ -23,11 +23,11 @@ export default function Home() {
   const wallet = useSelector((state) => state.wallet);
 
   const featured = [
-    '3840837671829324',
-    '9092334640245223',
-    '1929825512645025',
-    '4485804221431312',
-    '1013934222421341',
+    '3822837671821324',
+    '9092364640241223',
+    '1929785512641025',
+    '4438804221432312',
+    '1013931522423341',
   ];
 
   const featuredCats = featured.map((genes) => {
@@ -42,9 +42,9 @@ export default function Home() {
   return (
     <div className="d-flex flex-column align-items-center">
       <div align="center" className="mt-2">
-        <h1>Academy Kitties</h1>
+        <h1>Qitty Cats</h1>
         <p>
-          Collect and breed furrever freinds!
+          Collect and breed furrever friendz!
           <br />
           <GenZeroCounter msg="geneneration zero Kittes already created. Get yours before they're all gone!" />
         </p>

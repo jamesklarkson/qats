@@ -27,13 +27,13 @@ Testing: mocha, chai, truffle-assertions
 
 2. You'll need some test ETH on the Ropsten network. Visit a <a href="https://faucet.dimensions.network/" target="_blank">faucet</a> to get some free test ETH. Make sure you've set your wallet network to `Ropsten`.
 
-3. Visit the <a href="https://mayjer-academy-kitties.netlify.app/" target="_blank">Academy Kitties</a> website.
+3. Visit the <a href="https://mayjer-academy-kitties.netlify.app/" target="_blank">Qitty Cats</a> website.
 
 4. Make sure your wallet is on the `Ropsten` test network. Press the "Connect" button. This will connect the wallet to the app so it can query the blockchain for your kitties.
 
 5. Head over to the Marketplace to get some kitties! Once you have 2 kitties you can breed them and have kittens.
 
-### Academy Kitties DNA
+### Qitty Cats DNA
 
 The DNA structure is a 16 digit number with the following breakdown. The Kitten DNA is a random combination of the parent DNA with a chance for a completely random value.
 

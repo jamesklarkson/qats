@@ -16,7 +16,7 @@ const initialState = walletAdapter.getInitialState({
   isKittyCreator: false,
   isOwner: false,
   network: null,
-  supportedNetworks: ['0x3', '0x539'],
+  supportedNetworks: ['0x3', '0x539', '0x1B9E'],
   web3ProviderAvailable: null,
 });
 

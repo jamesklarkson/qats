@@ -2,7 +2,7 @@ pragma solidity ^0.5.12;
 
 import "./Ownable.sol";
 import "./KittyFactory.sol";
-import "./IKittyMarketplace.sol";
+import "./IKittyMarketPlace.sol";
 
 contract KittyMarketPlace is Ownable, IKittyMarketPlace {
     KittyFactory internal _kittyContract;

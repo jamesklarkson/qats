@@ -40,7 +40,7 @@ export default function AppHeader() {
           width="30"
           height="30"
         />
-        Academy Kitties
+        Qitty Cats
       </NavLink>
       {links}
       {factory}
