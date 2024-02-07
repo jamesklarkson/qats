@@ -90,16 +90,7 @@ function getErrorMessage(actionRejection) {
   return errMsg;
 }
 
-function* onTransaction(actionMessage) {
-  const pendingAction = yield take(
-    actionMessage.prefix
-    ? `${actionMessage.prefix}/pending`
-    : actionMessage.loadAction
-    );
-  const id = pendingAction.meta
-  ? pendingAction.meta.requestId
-    : null;
-  
+function* onTransaction(id, actionMessage) {
   const successMessage = actionMessage.fulfilled || success;
 
   try {
@@ -166,12 +157,6 @@ function generateTransWatcher(actionMessage) {
 
 export default function* transStatusSaga() {
   yield all(messagesByAction.map(
-    (actionMessage) => takeEvery(
-      actionMessage.prefix
-      ? `${actionMessage.prefix}/pending`
-      : actionMessage.loadAction,
-      onTransaction,
-      actionMessage
-    )
+    (actionMessage) => call(generateTransWatcher(actionMessage))
   ));
 }
