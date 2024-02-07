@@ -1,8 +1,6 @@
 # crypto-kitties
 A Crypto Kitties clone. For fun... and maybe food for the Crypto Zombies tutorial! Mwuahahah!
 
-Hosted on Netlify: https://mayjer-academy-kitties.netlify.app/
-
 Original project, check them out!<br>
 https://www.cryptokitties.co/
 
@@ -98,6 +96,3 @@ INFURA_PROJECT_ID=
 ```
 
 Follow the local deployment instructions above except use `truffle console --network ropsten` (or your test network of choice).
-
-#### Bootcamp project template
-https://github.com/Ivan-on-Tech-Academy/academy-kitties-template/tree/master
