@@ -1,5 +1,5 @@
 import {
-  take, fork, put, all, call, race
+  take, fork, put, all, call, race, takeEvery
 } from 'redux-saga/effects';
 import { addKittyCreator, removeKittyCreator } from '../admin/kittyCreatorSlice';
 
