@@ -9,7 +9,7 @@ import Cat from './components/cat/Cat';
 import { CatModel } from './components/js/catFactory';
 import { connect } from './components/wallet/walletSaga';
 import GenZeroCounter from './components/cat/GenZeroCounter';
-import {Link, NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const Featured = styled(Row)`
     max-width: 40rem;
