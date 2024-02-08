@@ -1,22 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Button, Col, Row, Badge
 } from 'react-bootstrap';
 
 import { CatModel } from '../js/catFactory';
-import CatBox from '../cat/CatBox';
 import BirthAlert from './BirthAlert';
 import { createGen0Kitty, selectKittyById, newKittenIdClear } from '../cat/catSlice';
 import GenZeroCounter from '../cat/GenZeroCounter';
 
-const initialCatModel = new CatModel();
-
-
 export default function CatFactory() {
   const dispatch = useDispatch();
 
-  const [cat] = useState({ model: initialCatModel, });
   const kitten = useSelector((state) => selectKittyById(state, state.kitties.newKittenId));
 
 

@@ -9,7 +9,6 @@ import Cat from './components/cat/Cat';
 import { CatModel } from './components/js/catFactory';
 import { connect } from './components/wallet/walletSaga';
 import GenZeroCounter from './components/cat/GenZeroCounter';
-import {createGen0Kitty} from "./components/cat/catSlice";
 import {Link} from "react-router-dom";
 
 const Featured = styled(Row)`
@@ -31,10 +30,6 @@ export default function Home() {
     '4438804221432312',
     '1013931522423341',
   ];
-
-  const handleCreateKitty = () => {
-    dispatch(createGen0Kitty(CatModel.getRandom().dna.dna));
-  };
 
   const featuredCats = featured.map((genes) => {
     const cat = new CatModel({ genes, });
