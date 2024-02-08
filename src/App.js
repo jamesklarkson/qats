@@ -6,7 +6,7 @@ import {
   Route,
   Redirect
 } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector} from 'react-redux';
 import { Alert, Container } from 'react-bootstrap';
 import './components/css/mystyle.css';
 import AppHeader from './components/AppHeader';
@@ -19,9 +19,11 @@ import MarketPage from './components/market/MarketPage';
 import TransactionStatusToast from './components/notification/TransactionStatusToast';
 import { selectOnSupportedNetwork, selectSupportedNetworks } from './components/wallet/walletSlice';
 import AdminPage from './components/admin/AdminPage';
+import history from './history';
 
 
 export default function App() {
+
   const wallet = useSelector((state) => state.wallet);
   const onSupportedNetwork = useSelector(selectOnSupportedNetwork);
   const supportedNetworks = useSelector(selectSupportedNetworks);
@@ -100,7 +102,7 @@ export default function App() {
     <div>
       <Container className="p-5">
         <TransactionStatusToast />
-        <Router>
+        <Router history={history}>
           <AppHeader />
           {unsupportedNetwork}
           {routes}

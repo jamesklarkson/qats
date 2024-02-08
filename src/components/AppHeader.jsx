@@ -1,23 +1,40 @@
 import React from 'react';
 import { Nav } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import {Link, NavLink} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
 import Wallet from './wallet/Wallet';
 import { selectOnSupportedNetwork } from './wallet/walletSlice';
+import {connect} from "./wallet/walletSaga";
+import history from "../history";
+
 
 export default function AppHeader() {
   const onSupportedNetwork = useSelector(selectOnSupportedNetwork);
   const account = useSelector((state) => state.wallet.account);
   const isOwner = useSelector((state) => state.wallet.isOwner);
     const isKittyCreator = useSelector((state) => state.wallet.isKittyCreator);
+    const dispatch = useDispatch();
+    const handleMarketLink = () => {
+        dispatch(connect())
+        history.push('/market')
+    };
+    const handleKittyLink = () => {
+        dispatch(connect())
+        history.push('/kitties')
+    };
+
+    const handleBreedLink = () => {
+        dispatch(connect())
+        history.push('/breed')
+    };
 
   // only show nav links if there is a connected account
   const links = account && onSupportedNetwork
     ? (
       <>
-        <NavLink to="/kitties" className="btn nav-link">My Kitties</NavLink>
-        <NavLink to="/breed" className="btn nav-link">Breed</NavLink>
-        <NavLink to="/market" className="btn nav-link">Marketplace</NavLink>
+        <Link to="/kitties" onClick={handleKittyLink} className="btn nav-link">My Kitties</Link>
+        <Link to="/breed" onClick={handleBreedLink} className="btn nav-link">Breed</Link>
+        <Link to="/market" onClick={handleMarketLink} className="btn nav-link">Marketplace</Link>
       </>
     )
     : null;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 import { Container } from 'react-bootstrap';
 
 import CatBox from './CatBox';
@@ -10,6 +10,7 @@ import { MediumCatContainer } from './CatBoxContainers';
 
 
 export default function CatList() {
+
   const wallet = useSelector((state) => state.wallet);
   const kitties = useSelector((state) => selectKittiesByOwner(state, wallet.account));
 
