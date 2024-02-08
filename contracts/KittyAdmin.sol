@@ -50,4 +50,8 @@ contract KittyAdmin is Ownable {
     function getKittyCreators() external view returns (address[] memory) {
         return kittyCreators;
     }
+
+    function withdraw() onlyOwner external {
+        msg.sender.transfer(address(this).balance);
+    }
 }

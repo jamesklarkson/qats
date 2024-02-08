@@ -852,7 +852,7 @@ exports.abi = [
         "type": "uint256",
       }
     ],
-    "payable": false,
+    "payable": true,
     "stateMutability": "nonpayable",
     "type": "function",
   },
@@ -878,7 +878,7 @@ exports.abi = [
         "type": "uint256",
       }
     ],
-    "payable": false,
+    "payable": true,
     "stateMutability": "nonpayable",
     "type": "function",
   },

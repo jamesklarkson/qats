@@ -17,8 +17,8 @@ export default class Service {
       market: '0xe59ff6CF2f513Ea166D6af2226D78705906EA6bB',
     },
     '0x1B9E': {
-      kitty: '0x08bb954fEC6fD99087f9ccF4E7a46c0c973Ba886',
-      market: '0x8126FCdd41f06E5C42B3173f4B654474Da51c6AD'
+      kitty: '0xf2af489db9023f41a61078F7f4fD7316865BE8Cd',
+      market: '0xEBe80cBE3f2c6CE344F7aDBC1B0a8b67cA2318e1'
     }
   };
 

@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Alert, Container } from 'react-bootstrap';
-
+import './components/css/mystyle.css';
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 import CatFactory from './components/factory/CatFactory';

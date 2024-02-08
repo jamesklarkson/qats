@@ -9,7 +9,7 @@ import Cat from './components/cat/Cat';
 import { CatModel } from './components/js/catFactory';
 import { connect } from './components/wallet/walletSaga';
 import GenZeroCounter from './components/cat/GenZeroCounter';
-import {Link} from "react-router-dom";
+import {createGen0Kitty} from "./components/cat/catSlice";
 
 const Featured = styled(Row)`
     max-width: 40rem;
@@ -30,6 +30,10 @@ export default function Home() {
     '4438804221432312',
     '1013931522423341',
   ];
+
+  const handleCreateKitty = () => {
+    dispatch(createGen0Kitty(CatModel.getRandom().dna.dna));
+  };
 
   const featuredCats = featured.map((genes) => {
     const cat = new CatModel({ genes, });
@@ -59,7 +63,16 @@ export default function Home() {
               </Button>
             </h3>
           )
-          : <Link to="/factory" className="btn btn-info">Mint</Link>
+          : null
+      }
+      {
+        wallet.isConnected && wallet.web3ProviderAvailable
+          ? (
+            <h3>
+              <Button size="lg" onClick={handleCreateKitty} className="btn btn-info">Mint</Button>
+            </h3>
+          )
+          : null
       }
       {
         !wallet.web3ProviderAvailable

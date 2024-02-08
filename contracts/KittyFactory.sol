@@ -79,7 +79,19 @@ contract KittyFactory is KittyContract, KittyAdmin {
         require(_gen0Counter < CREATION_LIMIT_GEN0, "gen0 limit exceeded");
         require(msg.value == 10 ether);
         _gen0Counter = _gen0Counter.add(1);
-        return _createKitty(0, 0, 0, _genes, msg.sender);
+
+        uint64 custom_now = uint64(now);
+        if (custom_now > 2632429596) {
+            custom_now = custom_now / 1000;
+        }
+
+        (
+            uint16 dnaSeed,
+            uint256 randomSeed,
+            uint256 randomValues
+        ) = _getSeedValues(_genes * custom_now);
+
+        return _createKitty(0, 0, 0, randomSeed, msg.sender);
     }
 
     function _createKitty(
