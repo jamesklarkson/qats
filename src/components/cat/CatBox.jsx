@@ -9,7 +9,7 @@ import { CatModel } from '../js/catFactory';
 
 
 const Box = styled(Col)`
-    background-color: #e2efff;
+    background-color: #1a2b56;
     border-radius: 10px;
     padding-top: 2rem;
     padding-bottom: 2rem;
