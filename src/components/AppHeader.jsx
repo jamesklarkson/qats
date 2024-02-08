@@ -9,6 +9,7 @@ export default function AppHeader() {
   const onSupportedNetwork = useSelector(selectOnSupportedNetwork);
   const account = useSelector((state) => state.wallet.account);
   const isOwner = useSelector((state) => state.wallet.isOwner);
+    const isKittyCreator = useSelector((state) => state.wallet.isKittyCreator);
 
   // only show nav links if there is a connected account
   const links = account && onSupportedNetwork
@@ -20,6 +21,10 @@ export default function AppHeader() {
       </>
     )
     : null;
+
+    const factory = isKittyCreator
+        ? <NavLink to="/factory" className="btn nav-link">Mint</NavLink>
+        : null;
 
   const admin = isOwner
     ? <NavLink to="/admin" className="btn nav-link">Admin</NavLink>
@@ -37,6 +42,7 @@ export default function AppHeader() {
         Qitty Cats
       </NavLink>
       {links}
+      {factory}
       {admin}
       <Wallet />
     </Nav>

@@ -196,6 +196,14 @@ export default class KittyService extends EventEmitter {
       .then((txRecepit) => txRecepit.transactionHash);
   };
 
+  withdraw = async () => {
+    const instance = await this.getContract();
+    return instance.methods
+        .withdraw()
+        .send({ from: this.user, })
+        .then((txRecepit) => txRecepit.transactionHash);
+  };
+
   /**
    * Removes the Kitty Creator permission for the given address
    * @param {string} address address to remove

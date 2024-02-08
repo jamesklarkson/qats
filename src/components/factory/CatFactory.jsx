@@ -42,7 +42,7 @@ export default function CatFactory() {
           </small>
         </h1>
         <p className="text-justify">
-          Create a custom generation zero Kitty!
+          Create a generation zero Kitty!
           {' '}
           <small>
             Gen zero kitties are special.
@@ -52,17 +52,14 @@ export default function CatFactory() {
         </p>
       </div>
       <Row>
-        <Col lg={4}>
-          <CatBox model={cat.model} />
-        </Col>
         <Col lg={8}>
           <div>
             <Button
-              variant="warning"
+              variant="info"
               className="m-2"
               onClick={handleCreateKitty}
             >
-              Create Kitty
+              Mint Kitty
             </Button>
           </div>
           <BirthAlert

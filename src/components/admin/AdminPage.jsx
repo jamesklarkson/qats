@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { addKittyCreator, removeKittyCreator, selectAllKittyCreators } from './kittyCreatorSlice';
+import {addKittyCreator, removeKittyCreator, selectAllKittyCreators, withdrawKittyCreator} from './kittyCreatorSlice';
 
 const Address = styled.div`
   padding: 0.25rem;
@@ -37,6 +37,10 @@ export default function AdminPage() {
     event.preventDefault();
     dispatch(addKittyCreator(newCreator));
   };
+  const onWithdrawClicked = (event) => {
+    event.preventDefault();
+    dispatch(withdrawKittyCreator());
+  };
 
   return (
     <div>
@@ -45,6 +49,7 @@ export default function AdminPage() {
       <div>
         {kittyCreatorItems}
       </div>
+        <Button size="lg" onClick={onWithdrawClicked} className="btn btn-info">Withdraw</Button>
       <Form inline onSubmit={onAddCreatorClicked}>
         <Form.Group>
           <Form.Control

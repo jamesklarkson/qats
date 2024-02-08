@@ -10,6 +10,7 @@ import { CatModel } from './components/js/catFactory';
 import { connect } from './components/wallet/walletSaga';
 import GenZeroCounter from './components/cat/GenZeroCounter';
 import {createGen0Kitty} from "./components/cat/catSlice";
+import {Link} from "react-router-dom";
 
 const Featured = styled(Row)`
     max-width: 40rem;
@@ -69,7 +70,7 @@ export default function Home() {
         wallet.isConnected && wallet.web3ProviderAvailable
           ? (
             <h3>
-              <Button size="lg" onClick={handleCreateKitty} className="btn btn-info">Mint</Button>
+              <Link size="lg" to="/factory" className="btn btn-info">Mint</Link>
             </h3>
           )
           : null

@@ -18,6 +18,11 @@ export const addKittyCreator = createAsyncThunk(
   (address) => Service.kitty.addKittyCreator(address)
 );
 
+export const withdrawKittyCreator = createAsyncThunk(
+    'kittyCreators/withdrawKittyCreator',
+    () => Service.kitty.withdraw()
+);
+
 export const removeKittyCreator = createAsyncThunk(
   'kittyCreators/removeKittyCreator',
   (address) => Service.kitty.removeKittyCreator(address)
